@@ -22,6 +22,11 @@ mongoose_1.default
     .catch((err) => {
     console.log("failed to connect", err);
 });
+app.get("/", (req, res) => {
+    return res.status(200).json({
+        message: "server is up and running yall ❤️😍"
+    });
+});
 app.use("/api/products", ProductController_1.default);
 app.use("/api/users", userController_1.default);
 app.listen(port, () => {

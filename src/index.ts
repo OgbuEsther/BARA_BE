@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request , Response } from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import AllRoute from "../controller/userController";
@@ -20,6 +20,12 @@ mongoose
   .catch((err) => {
     console.log("failed to connect", err);
   });
+
+app.get("/" , (req:Request , res:Response) =>{
+  return res.status(200).json({
+    message : "server is up and running yall ❤️😍"
+  })
+})
 
 app.use("/api/products", router);
 app.use("/api/users", AllRoute);
