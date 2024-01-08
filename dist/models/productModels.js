@@ -8,13 +8,10 @@ const ProductSchema = new mongoose_1.default.Schema({
     title: {
         type: String,
     },
-    desc: {
+    details: {
         type: String,
     },
     price: {
-        type: Number,
-    },
-    oldPrice: {
         type: Number,
     },
     quantity: {

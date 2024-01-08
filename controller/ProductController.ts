@@ -19,10 +19,10 @@ router.post(
         price,
         productImage,
         quantity,
-        status,
-        desc,
+     
+        details,
         category,
-        oldPrice,
+        
       } = req.body;
       const imgUploader = await cloudinary.uploader.upload(req?.file!.path);
    
@@ -33,9 +33,9 @@ router.post(
           productImage: imgUploader?.secure_url,
           quantity,
           status: true,
-          desc,
+          details,
           category,
-          oldPrice,
+         
         });
 
     
@@ -60,9 +60,6 @@ router.post(
     }
   }
 );
-
-//purchasing product
-
 
 
 //get all products

@@ -20,7 +20,7 @@ const multer_1 = require("../utils/multer");
 // create product
 router.post("/new-product", multer_1.uploadProducConfig, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { title, price, productImage, quantity, status, desc, category, oldPrice, } = req.body;
+        const { title, price, productImage, quantity, details, category, } = req.body;
         const imgUploader = yield cloudinary_1.default.uploader.upload(req === null || req === void 0 ? void 0 : req.file.path);
         const products = yield productModels_1.default.create({
             title,
@@ -28,9 +28,8 @@ router.post("/new-product", multer_1.uploadProducConfig, (req, res) => __awaiter
             productImage: imgUploader === null || imgUploader === void 0 ? void 0 : imgUploader.secure_url,
             quantity,
             status: true,
-            desc,
+            details,
             category,
-            oldPrice,
         });
         if (!products) {
             return res.status(201).json({
@@ -52,7 +51,6 @@ router.post("/new-product", multer_1.uploadProducConfig, (req, res) => __awaiter
         });
     }
 }));
-//purchasing product
 //get all products
 router.get("/allproducts", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {

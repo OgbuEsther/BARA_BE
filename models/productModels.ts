@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 interface Iprod {
   title: string;
-  desc: string;
+  details: string;
   price: number;
   quantity: number;
   productImage: string;
@@ -17,14 +17,11 @@ const ProductSchema = new mongoose.Schema(
     title: {
       type: String,
     },
-    desc: {
+    details: {
       type: String,
     },
 
     price: {
-      type: Number,
-    },
-    oldPrice: {
       type: Number,
     },
     quantity: {
